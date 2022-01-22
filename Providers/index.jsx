@@ -1,14 +1,16 @@
 import PropTypes from 'prop-types';
 import {ThemeProvider} from '@mui/material/styles';
 import {CssBaseline} from '@mui/material';
+import {useSelector} from 'react-redux';
 
 import theme from 'services/theme';
 
 import Layout from 'Layout';
 
 const Providers = ({children}) => {
+  const settings = useSelector((state) => state.settings);
   return (
-    <ThemeProvider theme={theme()}>
+    <ThemeProvider theme={theme(settings)}>
       <CssBaseline />
       <Layout>{children}</Layout>
     </ThemeProvider>

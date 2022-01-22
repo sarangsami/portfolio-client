@@ -2,7 +2,11 @@ import * as React from 'react';
 import PropTypes from 'prop-types';
 import Head from 'next/head';
 import {CacheProvider} from '@emotion/react';
+import {Provider} from 'react-redux';
+
 import createEmotionCache from 'utils/createEmotionCache';
+import {store} from 'redux/store';
+
 import Providers from 'Providers';
 
 const clientSideEmotionCache = createEmotionCache();
@@ -15,9 +19,11 @@ export default function MyApp(props) {
       <Head>
         <meta name="viewport" content="initial-scale=1, width=device-width" />
       </Head>
-      <Providers>
-        <Component {...pageProps} />
-      </Providers>
+      <Provider store={store}>
+        <Providers>
+          <Component {...pageProps} />
+        </Providers>
+      </Provider>
     </CacheProvider>
   );
 }
