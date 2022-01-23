@@ -4,6 +4,7 @@ import {CssBaseline} from '@mui/material';
 import {useSelector} from 'react-redux';
 
 import theme from 'services/theme';
+import 'services/localization';
 
 import Layout from 'Layout';
 

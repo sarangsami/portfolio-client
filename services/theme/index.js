@@ -7,7 +7,7 @@ const theme = (settings) => {
     palette: {
       mode: isDark ? 'dark' : 'light',
       primary: {
-        main: '#556cd6',
+        main: '#FF772B',
       },
       secondary: {
         main: '#19857b',
