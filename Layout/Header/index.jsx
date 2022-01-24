@@ -1,10 +1,19 @@
-import * as React from 'react';
-import AppBar from '@mui/material/AppBar';
-import Box from '@mui/material/Box';
-import Container from '@mui/material/Container';
-import {CardMedia, Grid, Tab, Tabs} from '@mui/material';
+import {Fragment, useState} from 'react';
+import {
+  CardMedia,
+  Grid,
+  Tab,
+  Tabs,
+  AppBar,
+  Box,
+  Container,
+  Toolbar,
+} from '@mui/material';
 import {styled} from '@mui/material/styles';
 import {useTranslation} from 'react-i18next';
+
+import LanguageMenu from 'components/LanguageMenu';
+import ModeSwitch from 'components/ModeSwitch';
 
 const CustomTabs = styled((props) => (
   <Tabs
@@ -43,48 +52,69 @@ const CustomTab = styled((props) => <Tab disableRipple {...props} />)(
 
 const Header = () => {
   const {t} = useTranslation();
-  const [value, setValue] = React.useState(0);
+  const [value, setValue] = useState(0);
 
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };
   return (
-    <AppBar position="fixed" color="inherit" elevation={0}>
-      <Container maxWidth="xl">
-        <Grid container>
-          <Grid item xl={2} lg={2} md={6} sm={6} xs={6}></Grid>
-          <Grid item xl lg md sm xs>
-            <Box display="flex" justifyContent="center">
-              <CustomTabs
-                textColor="primary"
-                indicatorColor="primary"
-                aria-label="basic tabs example"
-                value={value}
-                onChange={handleChange}
-              >
-                <CustomTab label={t('header.aboutMe')} />
-                <CustomTab label={t('header.experience')} />
-                <CustomTab label={t('header.projects')} />
-                <CustomTab label={t('header.skills')} />
-                <CustomTab label={t('header.blog')} />
-                <CustomTab label={t('header.contact')} />
-              </CustomTabs>
-            </Box>
+    <Fragment>
+      <AppBar position="fixed" color="inherit" elevation={3}>
+        <Container maxWidth="xl">
+          <Grid container>
+            <Grid item xl={2} lg={2} md={6} sm={6} xs={6}>
+              <Box display="flex" alignItems="center" height='100%'>
+                <LanguageMenu />
+                <ModeSwitch/>
+              </Box>
+            </Grid>
+            <Grid
+              sx={{
+                display: {
+                  xs: 'none',
+                  sm: 'none',
+                  md: 'none',
+                  lg: 'flex',
+                  xl: 'flex',
+                },
+              }}
+              item
+              xl={8}
+              lg={8}
+            >
+              <Box display="flex" justifyContent="center" width="100%">
+                <CustomTabs
+                  textColor="primary"
+                  indicatorColor="primary"
+                  aria-label="basic tabs example"
+                  value={value}
+                  onChange={handleChange}
+                >
+                  <CustomTab label={t('header.aboutMe')} />
+                  <CustomTab label={t('header.experience')} />
+                  <CustomTab label={t('header.projects')} />
+                  <CustomTab label={t('header.skills')} />
+                  <CustomTab label={t('header.blog')} />
+                  <CustomTab label={t('header.contact')} />
+                </CustomTabs>
+              </Box>
+            </Grid>
+            <Grid item xl={2} lg={2} md={6} sm={6} xs={6}>
+              <Box p={1}>
+                <CardMedia
+                  sx={{width: 41, height: 44}}
+                  component="img"
+                  objectFit="contain"
+                  image="/images/logo.svg"
+                  alt="logo"
+                />
+              </Box>
+            </Grid>
           </Grid>
-          <Grid item xl={2} lg={2} md={6} sm={6} xs={6}>
-            <Box p={1}>
-              <CardMedia
-                sx={{width: 41, height: 44}}
-                component="img"
-                objectFit="contain"
-                image="/images/logo.svg"
-                alt="logo"
-              />
-            </Box>
-          </Grid>
-        </Grid>
-      </Container>
-    </AppBar>
+        </Container>
+      </AppBar>
+      <Toolbar />
+    </Fragment>
   );
 };
 export default Header;

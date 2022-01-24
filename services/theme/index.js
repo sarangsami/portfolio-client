@@ -2,10 +2,10 @@ import {createTheme} from '@mui/material/styles';
 import {red} from '@mui/material/colors';
 
 const theme = (settings) => {
-  const {isDark} = settings;
+  const {mode, direction} = settings;
   return createTheme({
     palette: {
-      mode: isDark ? 'dark' : 'light',
+      mode: mode,
       primary: {
         main: '#FF772B',
       },
@@ -16,6 +16,7 @@ const theme = (settings) => {
         main: red.A400,
       },
     },
+    direction,
   });
 };
 
