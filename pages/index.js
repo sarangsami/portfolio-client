@@ -1,4 +1,4 @@
-import {Box, Container, Grid, TextField, Typography} from '@mui/material';
+import {Box, Container, Grid, Typography} from '@mui/material';
 
 const Home = () => {
   return (
@@ -46,7 +46,6 @@ const Home = () => {
                   Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
                   do eiusmod tempor incididunt ut labore et dolore
                 </Typography>
-                <TextField label="تست"/>
               </Box>
             </Grid>
             <Grid item xl lg md sm xs>

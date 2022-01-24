@@ -1,6 +1,5 @@
 import {Fragment, useState} from 'react';
 import {
-  CardMedia,
   Grid,
   Tab,
   Tabs,
@@ -14,6 +13,8 @@ import {useTranslation} from 'react-i18next';
 
 import LanguageMenu from 'components/LanguageMenu';
 import ModeSwitch from 'components/ModeSwitch';
+import ColorMenu from 'components/ColorMenu';
+import Logo from 'components/Logo';
 
 const CustomTabs = styled((props) => (
   <Tabs
@@ -59,13 +60,14 @@ const Header = () => {
   };
   return (
     <Fragment>
-      <AppBar position="fixed" color="inherit" elevation={3}>
+      <AppBar position="static" color="transparent" elevation={6}>
         <Container maxWidth="xl">
           <Grid container>
             <Grid item xl={2} lg={2} md={6} sm={6} xs={6}>
-              <Box display="flex" alignItems="center" height='100%'>
+              <Box display="flex" alignItems="center" height="100%">
                 <LanguageMenu />
-                <ModeSwitch/>
+                <ModeSwitch />
+                <ColorMenu />
               </Box>
             </Grid>
             <Grid
@@ -101,13 +103,7 @@ const Header = () => {
             </Grid>
             <Grid item xl={2} lg={2} md={6} sm={6} xs={6}>
               <Box p={1}>
-                <CardMedia
-                  sx={{width: 41, height: 44}}
-                  component="img"
-                  objectFit="contain"
-                  image="/images/logo.svg"
-                  alt="logo"
-                />
+                <Logo />
               </Box>
             </Grid>
           </Grid>

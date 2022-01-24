@@ -9,6 +9,8 @@ import {store} from 'redux/store';
 
 import Providers from 'Providers';
 
+import 'styles/globals.css';
+
 const clientSideEmotionCache = createEmotionCache();
 
 export default function MyApp(props) {

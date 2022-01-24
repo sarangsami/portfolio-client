@@ -2,6 +2,7 @@ import {createSlice} from '@reduxjs/toolkit';
 
 const initialState = {
   mode: 'light',
+  primaryColor: '#FF772B',
   direction: 'ltr',
   language: 'en',
 };
@@ -19,9 +20,13 @@ export const settingSlice = createSlice({
     setLanguage: (state, action) => {
       state.language = action.payload;
     },
+    setPrimaryColor: (state, action) => {
+      state.primaryColor = action.payload;
+    },
   },
 });
 
-export const {setMode, setDirection, setLanguage} = settingSlice.actions;
+export const {setMode, setDirection, setLanguage, setPrimaryColor} =
+  settingSlice.actions;
 
 export default settingSlice.reducer;
