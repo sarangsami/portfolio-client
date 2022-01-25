@@ -7,9 +7,12 @@ import {
   Box,
   Container,
   Toolbar,
+  useMediaQuery,
+  IconButton,
 } from '@mui/material';
-import {styled} from '@mui/material/styles';
+import {styled, useTheme} from '@mui/material/styles';
 import {useTranslation} from 'react-i18next';
+import {Menu} from '@mui/icons-material';
 
 import LanguageMenu from 'components/LanguageMenu';
 import ModeSwitch from 'components/ModeSwitch';
@@ -55,58 +58,85 @@ const Header = () => {
   const {t} = useTranslation();
   const [value, setValue] = useState(0);
 
+  const theme = useTheme();
+  const isLg = useMediaQuery(theme.breakpoints.up('lg'));
+
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };
   return (
     <Fragment>
-      <AppBar position="static" color="transparent" elevation={6}>
-        <Container maxWidth="xl">
-          <Grid container>
-            <Grid item xl={2} lg={2} md={6} sm={6} xs={6}>
-              <Box display="flex" alignItems="center" height="100%">
-                <LanguageMenu />
-                <ModeSwitch />
-                <ColorMenu />
-              </Box>
-            </Grid>
-            <Grid
-              sx={{
-                display: {
-                  xs: 'none',
-                  sm: 'none',
-                  md: 'none',
-                  lg: 'flex',
-                  xl: 'flex',
-                },
-              }}
-              item
-              xl={8}
-              lg={8}
-            >
-              <Box display="flex" justifyContent="center" width="100%">
-                <CustomTabs
-                  textColor="primary"
-                  indicatorColor="primary"
-                  aria-label="basic tabs example"
-                  value={value}
-                  onChange={handleChange}
+      <AppBar position="fixed" color="inherit" elevation={0}>
+        <Container>
+          <Toolbar disableGutters>
+            <Grid container>
+              {!isLg && (
+                <Grid item xl lg md sm xs>
+                  <IconButton>
+                    <Menu />
+                  </IconButton>
+                </Grid>
+              )}
+
+              <Grid item xl={2} lg={2}>
+                <Box
+                  display="flex"
+                  alignItems="center"
+                  flexDirection={isLg ? 'row' : 'row-reverse'}
+                  height="100%"
                 >
-                  <CustomTab label={t('header.aboutMe')} />
-                  <CustomTab label={t('header.experience')} />
-                  <CustomTab label={t('header.projects')} />
-                  <CustomTab label={t('header.skills')} />
-                  <CustomTab label={t('header.blog')} />
-                  <CustomTab label={t('header.contact')} />
-                </CustomTabs>
-              </Box>
+                  <Box>
+                    <LanguageMenu />
+                  </Box>
+                  <Box>
+                    <ModeSwitch />
+                  </Box>
+                  <Box>
+                    <ColorMenu />
+                  </Box>
+                </Box>
+              </Grid>
+              {isLg && (
+                <Grid item xl={8} lg={8}>
+                  <Box display="flex" justifyContent="center" width="100%">
+                    <CustomTabs
+                      textColor="primary"
+                      indicatorColor="primary"
+                      aria-label="basic tabs example"
+                      variant="scrollable"
+                      scrollButtons="auto"
+                      value={value}
+                      onChange={handleChange}
+                    >
+                      <CustomTab label={t('header.aboutMe')} />
+                      <CustomTab label={t('header.experience')} />
+                      <CustomTab label={t('header.projects')} />
+                      <CustomTab label={t('header.skills')} />
+                      <CustomTab label={t('header.blog')} />
+                      <CustomTab label={t('header.contact')} />
+                    </CustomTabs>
+                  </Box>
+                </Grid>
+              )}
+              {isLg && (
+                <Grid item xl={2} lg={2}>
+                  <Box
+                    p={1}
+                    sx={{
+                      display: 'flex',
+                      justifyContent: 'flex-end',
+                      alignItems: 'center',
+                      height: '100%',
+                      width: '100%',
+                      cursor: 'pointer',
+                    }}
+                  >
+                    <Logo />
+                  </Box>
+                </Grid>
+              )}
             </Grid>
-            <Grid item xl={2} lg={2} md={6} sm={6} xs={6}>
-              <Box p={1}>
-                <Logo />
-              </Box>
-            </Grid>
-          </Grid>
+          </Toolbar>
         </Container>
       </AppBar>
       <Toolbar />
