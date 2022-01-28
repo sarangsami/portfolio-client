@@ -4,5 +4,7 @@
   "header.projects":"Projects",
   "header.skills":"Skills",
   "header.blog":"Blog",
-  "header.contact":"Contact"
+  "header.contact":"Contact",
+  "home.hireMe":"Hire Me",
+  "home.downloadCV":"Download CV"
 }
