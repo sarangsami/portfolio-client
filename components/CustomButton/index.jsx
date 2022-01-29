@@ -5,7 +5,7 @@ import {Button} from '@mui/material';
 const CustomizedButton = styled(Button)(({theme}) => ({
   borderRadius: 15,
   textTransform: 'none',
-  padding: 15,
+  padding: 12,
 }));
 
 const CustomButton = (props) => {
