@@ -5,10 +5,19 @@ import {
   LinkedIn,
 } from '@mui/icons-material';
 import {Box, Grid, IconButton} from '@mui/material';
+import {styled} from '@mui/material/styles';
+
+const CustomIconButton = styled(IconButton)({
+  'opacity': 0.6,
+  'transition': 'opacity 0.5s',
+  '&:hover': {
+    opacity: 1,
+  },
+});
 
 const SocialMedia = () => {
   return (
-    <Box display='flex'>
+    <Box display="flex">
       <Grid container direction="column" spacing={1} alignItems="center">
         <Grid item xl lg md sm xs>
           <Box
@@ -20,24 +29,24 @@ const SocialMedia = () => {
           />
         </Grid>
         <Grid item xl lg md sm xs>
-          <IconButton>
+          <CustomIconButton disableRipple>
             <LinkedIn />
-          </IconButton>
+          </CustomIconButton>
         </Grid>
         <Grid item xl lg md sm xs>
-          <IconButton>
+          <CustomIconButton disableRipple>
             <FacebookTwoTone />
-          </IconButton>
+          </CustomIconButton>
         </Grid>
         <Grid item xl lg md sm xs>
-          <IconButton>
+          <CustomIconButton disableRipple>
             <GitHub />
-          </IconButton>
+          </CustomIconButton>
         </Grid>
         <Grid item xl lg md sm xs>
-          <IconButton>
+          <CustomIconButton disableRipple>
             <Instagram />
-          </IconButton>
+          </CustomIconButton>
         </Grid>
       </Grid>
     </Box>

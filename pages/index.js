@@ -1,7 +1,7 @@
 import {useTranslation} from 'react-i18next';
 import {useSelector} from 'react-redux';
 import {Box, Container, Grid, Typography, useMediaQuery} from '@mui/material';
-import {useTheme} from '@mui/material/styles';
+import {useTheme, alpha} from '@mui/material/styles';
 
 import CustomButton from 'components/CustomButton';
 import {ChevronLeft, ChevronRight} from '@mui/icons-material';
@@ -40,7 +40,8 @@ const Home = () => {
           backgroundSize: 'contain',
           display: 'flex',
           justifyContent: 'center',
-          py: 3,
+          alignItems: 'center',
+          pt: 3,
         }}
       >
         <Container>
@@ -48,8 +49,7 @@ const Home = () => {
             container
             spacing={3}
             direction={isMd ? 'column-reverse' : 'row'}
-            justifyContent="center"
-            alignItems="center"
+            alignItems="ccenter"
           >
             <Grid item xl={5} lg={5} md={6} sm={12} xs={12}>
               <Box>
@@ -75,14 +75,25 @@ const Home = () => {
                   <Typography
                     component="span"
                     color="primary"
-                    sx={{fontSize: isMd ? 24 : 48, fontWeight: 'bold'}}
+                    sx={{
+                      fontSize: isMd ? 24 : 48,
+                      fontWeight: 'bold',
+                      textShadow: (theme) =>
+                        ` 0px 15px 15px ${alpha(
+                            theme.palette.primary.main,
+                            0.25,
+                        )}`,
+                    }}
                   >
                     Developer
                   </Typography>
                 </Typography>
               </Box>
-              <Box mt={2}>
-                <Typography align={isMd ? 'center' : 'flex-start'}>
+              <Box mt={3}>
+                <Typography
+                  sx={{opacity: 0.8}}
+                  align={isMd ? 'center' : 'justify'}
+                >
                   Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
                   do eiusmod tempor incididunt ut labore et dolore magna aliqua.
                   Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
@@ -102,6 +113,13 @@ const Home = () => {
                       color="primary"
                       size={isMd ? 'small' : 'large'}
                       endIcon={iconRender()}
+                      sx={{
+                        boxShadow: (theme) =>
+                          ` 0px 15px 15px ${alpha(
+                              theme.palette.primary.main,
+                              0.25,
+                          )}`,
+                      }}
                     >
                       {t('home.hireMe')}
                     </CustomButton>
@@ -122,26 +140,47 @@ const Home = () => {
             </Grid>
             <Grid item xl lg md sm xs>
               <Box display="flex" justifyContent="flex-end" width="100%">
-                <Grid container>
+                <Grid container alignItems="center">
                   <Grid item xl lg md sm xs>
-                    <Box width="100%" maxWidth={350} height={450}>
-                      <Image
-                        src="/images/profileBackground.png"
-                        width="100%"
-                        height="100%"
-                        layout="responsive"
-                        objectFit="contain"
-                        alt="profile"
-                      />
+                    <Box
+                      display="flex"
+                      alignItems="center"
+                      justifyContent={isMd ? 'center' : 'flex-end'}
+                    >
+                      <Box width="100%" maxWidth={350} maxHeight={450}>
+                        <Image
+                          src="/images/profileBackground.png"
+                          width="100%"
+                          height="100%"
+                          layout="responsive"
+                          objectFit="contain"
+                          alt="profile"
+                        />
+                      </Box>
                     </Box>
                   </Grid>
-                  <Grid item xl lg md sm xs>
+                  <Grid item xl={1} lg={1} md={1} sm={1} xs={2}>
                     <SocialMedia />
                   </Grid>
                 </Grid>
               </Box>
             </Grid>
           </Grid>
+        </Container>
+      </Box>
+      <Box sx={{height: '80vh', my: 7}}>
+        <Container>
+          <Box
+            sx={{
+              backgroundColor: (globalTheme) =>
+                alpha(globalTheme.palette.primary.main, 0.1),
+              height: 450,
+              borderRadius: 5,
+              padding: 7,
+            }}
+          >
+            hi
+          </Box>
         </Container>
       </Box>
     </div>
