@@ -1,4 +1,5 @@
 import {Fragment, useState} from 'react';
+import PropTypes from 'prop-types';
 import {
   Grid,
   Tab,
@@ -54,15 +55,20 @@ const CustomTab = styled((props) => <Tab disableRipple {...props} />)(
     }),
 );
 
-const Header = () => {
+const Header = ({scrollRefs}) => {
   const {t} = useTranslation();
-  const [value, setValue] = useState(0);
-
   const theme = useTheme();
   const isLg = useMediaQuery(theme.breakpoints.up('lg'));
 
+  const [value, setValue] = useState(0);
+
   const handleChange = (event, newValue) => {
     setValue(newValue);
+    scrollRefs.current[newValue].scrollIntoView({
+      behavior: 'smooth',
+      block: 'end',
+      inline: 'nearest',
+    });
   };
   return (
     <Fragment>
@@ -143,4 +149,9 @@ const Header = () => {
     </Fragment>
   );
 };
+
+Header.propTypes = {
+  scrollRefs: PropTypes.object,
+};
+
 export default Header;

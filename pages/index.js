@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import {useTranslation} from 'react-i18next';
 import {useSelector} from 'react-redux';
 import {Box, Container, Grid, Typography, useMediaQuery} from '@mui/material';
@@ -9,15 +10,11 @@ import SocialMedia from 'components/SocialMedia';
 import Head from 'next/head';
 import Image from 'next/image';
 
-const Home = () => {
+const Home = ({scrollRefs}) => {
   const {t} = useTranslation();
   const theme = useTheme();
   const isMd = useMediaQuery(theme.breakpoints.down('md'));
   const direction = useSelector((state) => state.settings.direction);
-
-  const person = {name: 'Jhon'};
-  const anotherPerson = person;
-  anotherPerson.name = 'Jane ';
 
   const iconRender = () => {
     if (direction === 'rtl') {
@@ -33,6 +30,8 @@ const Home = () => {
         <title>Sarang Sami</title>
       </Head>
       <Box
+        component="section"
+        ref={(el) => (scrollRefs.current[0] = el)}
         sx={{
           minHeight: '90vh',
           background: 'url(/images/firstSectionBg.svg)',
@@ -78,9 +77,9 @@ const Home = () => {
                     sx={{
                       fontSize: isMd ? 24 : 48,
                       fontWeight: 'bold',
-                      textShadow: (theme) =>
+                      textShadow: (globalTheme) =>
                         ` 0px 15px 15px ${alpha(
-                            theme.palette.primary.main,
+                            globalTheme.palette.primary.main,
                             0.25,
                         )}`,
                     }}
@@ -168,7 +167,11 @@ const Home = () => {
           </Grid>
         </Container>
       </Box>
-      <Box sx={{height: '80vh', my: 7}}>
+      <Box
+        sx={{height: '80vh', my: 7}}
+        component="section"
+        ref={(el) => (scrollRefs.current[1] = el)}
+      >
         <Container>
           <Box
             sx={{
@@ -186,4 +189,9 @@ const Home = () => {
     </div>
   );
 };
+
+Home.propTypes = {
+  scrollRefs: PropTypes.any,
+};
+
 export default Home;
