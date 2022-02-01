@@ -8,7 +8,6 @@ import CustomButton from 'components/CustomButton';
 import {ChevronLeft, ChevronRight} from '@mui/icons-material';
 import SocialMedia from 'components/SocialMedia';
 import Head from 'next/head';
-import Image from 'components/Image';
 import Experiences from 'components/Experiences';
 
 const Home = ({scrollRefs}) => {
@@ -148,12 +147,10 @@ const Home = ({scrollRefs}) => {
                       justifyContent={isMd ? 'center' : 'flex-end'}
                     >
                       <Box width="100%" maxWidth={350} maxHeight={450}>
-                        <Image
+                        <img
                           src="/images/profileBackground.png"
                           width="100%"
                           height="100%"
-                          layout="responsive"
-                          objectFit="contain"
                           alt="profile"
                         />
                       </Box>
