@@ -8,7 +8,7 @@ import CustomButton from 'components/CustomButton';
 import {ChevronLeft, ChevronRight} from '@mui/icons-material';
 import SocialMedia from 'components/SocialMedia';
 import Head from 'next/head';
-import Image from 'next/image';
+import Image from 'components/Image';
 import Experiences from 'components/Experiences';
 
 const Home = ({scrollRefs}) => {
@@ -55,7 +55,7 @@ const Home = ({scrollRefs}) => {
               <Box>
                 <Typography
                   sx={{fontSize: 22}}
-                  align={isMd ? 'center' : 'flex-start'}
+                  align={isMd ? 'center' : 'left'}
                 >
                   Welcome i&apos;m{' '}
                   <Typography
@@ -69,7 +69,7 @@ const Home = ({scrollRefs}) => {
               <Box>
                 <Typography
                   sx={{fontSize: isMd ? 24 : 48, fontWeight: 'bold'}}
-                  align={isMd ? 'center' : 'flex-start'}
+                  align={isMd ? 'center' : 'left'}
                 >
                   Front-End{' '}
                   <Typography
