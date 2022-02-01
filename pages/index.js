@@ -9,6 +9,7 @@ import {ChevronLeft, ChevronRight} from '@mui/icons-material';
 import SocialMedia from 'components/SocialMedia';
 import Head from 'next/head';
 import Image from 'next/image';
+import Experiences from 'components/Experiences';
 
 const Home = ({scrollRefs}) => {
   const {t} = useTranslation();
@@ -168,22 +169,12 @@ const Home = ({scrollRefs}) => {
         </Container>
       </Box>
       <Box
-        sx={{height: '80vh', my: 7}}
+        sx={{minHeight: '80vh', my: 4}}
         component="section"
         ref={(el) => (scrollRefs.current[1] = el)}
       >
         <Container>
-          <Box
-            sx={{
-              backgroundColor: (globalTheme) =>
-                alpha(globalTheme.palette.primary.main, 0.1),
-              height: 450,
-              borderRadius: 5,
-              padding: 7,
-            }}
-          >
-            hi
-          </Box>
+          <Experiences />
         </Container>
       </Box>
     </div>
