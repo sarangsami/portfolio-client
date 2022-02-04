@@ -1,6 +1,7 @@
-import {Box, Container, Typography, useMediaQuery} from '@mui/material';
+import {Box, Container, useMediaQuery} from '@mui/material';
 import {useTheme, alpha} from '@mui/material/styles';
 
+import SectionTitle from 'components/SectionTitle';
 import HistoryItem from './HistoryItem';
 
 const Experiences = () => {
@@ -16,22 +17,7 @@ const Experiences = () => {
         padding: 4,
       }}
     >
-      <Box>
-        <Typography
-          variant="h5"
-          sx={{fontWeight: 'bold', textTransform: 'uppercase'}}
-        >
-          Experiences
-        </Typography>
-        <Box
-          sx={{
-            width: 32,
-            height: 3,
-            borderRadius: 15,
-            bgcolor: (globalTheme) => globalTheme.palette.text.primary,
-          }}
-        />
-      </Box>
+      <SectionTitle name="Experiences" />
       <Container maxWidth={isMd ? 'lg' : 'md'}>
         <Box mt={3}>
           <HistoryItem />
