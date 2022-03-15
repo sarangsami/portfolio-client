@@ -10,6 +10,9 @@ import {store} from 'redux/store';
 import Providers from 'Providers';
 
 import 'styles/globals.css';
+import 'swiper/css';
+import 'swiper/css/navigation';
+import 'swiper/css/pagination';
 
 const clientSideEmotionCache = createEmotionCache();
 
