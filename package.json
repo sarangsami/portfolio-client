@@ -27,9 +27,10 @@
     "swiper": "^8.0.7"
   },
   "devDependencies": {
+    "@next/eslint-plugin-next": "^12.1.0",
     "eslint": "^8.7.0",
     "eslint-config-google": "^0.14.0",
     "eslint-config-next": "12.0.8",
-    "eslint-plugin-react": "^7.28.0"
+    "eslint-plugin-react": "^7.29.4"
   }
 }
