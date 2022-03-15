@@ -6,6 +6,7 @@ const ProjectItem = () => {
     <Box
       sx={{
         'mb': 6,
+        'mt': 3,
         'cursor': 'pointer',
         'border': 'double 2px transparent',
         'borderRadius': 6,
@@ -24,7 +25,8 @@ const ProjectItem = () => {
           transition: 'all 320ms ease-in-out',
         },
         '&:hover': {
-          'boxShadow': ' 0px 0px 45px -34px rgba(0, 0, 0, 1)',
+          'boxShadow': (globalTheme) =>
+            ` 0px 0px 45px -34px ${globalTheme.palette.text.primary}`,
           '& #projectId': {
             color: (globalTheme) => globalTheme.palette.primary.main,
           },

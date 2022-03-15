@@ -1,9 +1,10 @@
+import PropTypes from 'prop-types';
 import {Box} from '@mui/material';
 import {alpha} from '@mui/material/styles';
 
-const CustomPin = () => {
+const CustomPin = ({noTail}) => {
   return (
-    <Box position="relative" >
+    <Box position="relative">
       <Box
         sx={{
           borderRadius: '50%',
@@ -25,21 +26,28 @@ const CustomPin = () => {
           }}
         />
       </Box>
-      <Box
-        sx={{
-          width: 3,
-          height: 40,
-          backgroundImage: (globalTheme) =>
-            `linear-gradient(${globalTheme.palette.primary.main}, ${alpha(
-                globalTheme.palette.primary.main,
-                0,
-            )})`,
-          position: 'absolute',
-          left: 8,
-          top: 14,
-        }}
-      />
+      {!noTail && (
+        <Box
+          sx={{
+            width: 3,
+            height: 40,
+            backgroundImage: (globalTheme) =>
+              `linear-gradient(${globalTheme.palette.primary.main}, ${alpha(
+                  globalTheme.palette.primary.main,
+                  0,
+              )})`,
+            position: 'absolute',
+            left: 8,
+            top: 14,
+          }}
+        />
+      )}
     </Box>
   );
 };
+
+CustomPin.propTypes = {
+  noTail: PropTypes.bool,
+};
+
 export default CustomPin;

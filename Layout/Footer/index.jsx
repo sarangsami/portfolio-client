@@ -1,21 +1,9 @@
 import * as React from 'react';
 import Box from '@mui/material/Box';
-import Typography from '@mui/material/Typography';
-import Container from '@mui/material/Container';
-import Link from '@mui/material/Link';
-
-function Copyright() {
-  return (
-    <Typography variant="body2" color="text.secondary">
-      {'Copyright © '}
-      <Link color="inherit" href="https://mui.com/">
-        Your Website
-      </Link>{' '}
-      {new Date().getFullYear()}
-      {'.'}
-    </Typography>
-  );
-}
+import {Container} from '@mui/material';
+import SectionTitle from 'components/SectionTitle';
+import {alpha, Grid} from '@mui/material';
+import ContactItem from 'components/ContactItem';
 
 export default function StickyFooter() {
   return (
@@ -25,17 +13,69 @@ export default function StickyFooter() {
         py: 3,
         px: 2,
         mt: 'auto',
-        backgroundColor: (theme) =>
-          theme.palette.mode === 'light' ?
-            theme.palette.grey[200] :
-            theme.palette.grey[800],
       }}
     >
-      <Container maxWidth="sm">
-        <Typography variant="body1">
-          My sticky footer can be found here.
-        </Typography>
-        <Copyright />
+      <Container>
+        <SectionTitle name="Contact" />
+        <Box
+          sx={{
+            backgroundColor: (globalTheme) =>
+              alpha(globalTheme.palette.primary.main, 0.1),
+            p: 3,
+            mt: 3,
+            borderRadius: 7,
+            minHeight: 170,
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center',
+            position: 'relative',
+          }}
+        >
+          <Box
+            sx={{
+              width: 30,
+              height: 30,
+              borderRadius: '50%',
+              backgroundColor: 'red',
+              position: 'absolute',
+              top: 0,
+            }}
+          />
+          <Box
+            sx={{
+              width: 30,
+              height: 30,
+              borderRadius: '50%',
+              backgroundColor: 'red',
+              position: 'absolute',
+              top: 0,
+            }}
+          />
+          <Box
+            sx={{
+              width: 30,
+              height: 30,
+              borderRadius: '50%',
+              backgroundColor: 'red',
+              position: 'absolute',
+              top: 0,
+            }}
+          />
+          <Container maxWidth="sm">
+            <Grid container spacing={3}>
+              <Grid item xl={6} lg={6} md={6} sm={12} xs={12}>
+                <Box sx={{display: 'flex', justifyContent: 'center'}}>
+                  <ContactItem />
+                </Box>
+              </Grid>
+              <Grid item xl={6} lg={6} md={6} sm={12} xs={12}>
+                <Box sx={{display: 'flex', justifyContent: 'center'}}>
+                  <ContactItem />
+                </Box>
+              </Grid>
+            </Grid>
+          </Container>
+        </Box>
       </Container>
     </Box>
   );

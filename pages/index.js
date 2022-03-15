@@ -5,6 +5,7 @@ import {Box, Container} from '@mui/material';
 import AboutMe from 'components/Home/AboutMe';
 import Experiences from 'components/Home/Experiences';
 import MyProjects from 'components/Home/MyProjects';
+import MySkills from 'components/Home/MySkills';
 
 const Home = ({scrollRefs}) => {
   return (
@@ -46,6 +47,15 @@ const Home = ({scrollRefs}) => {
       >
         <Container>
           <MyProjects />
+        </Container>
+      </Box>
+      <Box
+        sx={{minHeight: '80vh', my: 4}}
+        component="section"
+        ref={(el) => (scrollRefs.current[3] = el)}
+      >
+        <Container>
+          <MySkills />
         </Container>
       </Box>
     </div>

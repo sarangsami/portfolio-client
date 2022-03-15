@@ -24,7 +24,7 @@ const MyProjects = () => {
 
   return (
     <Box>
-      <Box p={3}>
+      <Box p={2}>
         <SectionTitle name="My Projects" />
       </Box>
       <Box
