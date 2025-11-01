@@ -1,8 +1,8 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   images: {
-    unoptimized: true, // disables the default optimization
+    unoptimized: true, // ✅ disables default Image Optimization
   },
 };
 
-export default nextConfig;
+module.exports = nextConfig; // ✅ use CommonJS export
