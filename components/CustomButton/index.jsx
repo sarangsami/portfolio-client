@@ -1,10 +1,10 @@
-import PropTypes from 'prop-types';
-import {styled} from '@mui/material/styles';
-import {Button} from '@mui/material';
+import PropTypes from "prop-types";
+import { styled } from "@mui/material/styles";
+import { Button } from "@mui/material";
 
-const CustomizedButton = styled(Button)(({theme}) => ({
+const CustomizedButton = styled(Button)(({ theme }) => ({
   borderRadius: 15,
-  textTransform: 'none',
+  textTransform: "none",
   padding: 12,
 }));
 

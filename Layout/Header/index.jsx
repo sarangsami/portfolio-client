@@ -1,5 +1,5 @@
-import {Fragment, useState} from 'react';
-import PropTypes from 'prop-types';
+import { Fragment, useState } from "react";
+import PropTypes from "prop-types";
 import {
   Grid,
   Tab,
@@ -10,64 +10,64 @@ import {
   Toolbar,
   useMediaQuery,
   IconButton,
-} from '@mui/material';
-import {styled, useTheme} from '@mui/material/styles';
-import {useTranslation} from 'react-i18next';
-import {Menu} from '@mui/icons-material';
+} from "@mui/material";
+import { styled, useTheme } from "@mui/material/styles";
+import { useTranslation } from "react-i18next";
+import { Menu } from "@mui/icons-material";
 
-import LanguageMenu from 'components/LanguageMenu';
-import ModeSwitch from 'components/ModeSwitch';
-import ColorMenu from 'components/ColorMenu';
-import Logo from 'components/Logo';
+import LanguageMenu from "components/LanguageMenu";
+import ModeSwitch from "components/ModeSwitch";
+import ColorMenu from "components/ColorMenu";
+import Logo from "components/Logo";
 
 const CustomTabs = styled((props) => (
   <Tabs
     {...props}
-    TabIndicatorProps={{children: <span className="MuiTabs-indicatorSpan" />}}
+    TabIndicatorProps={{ children: <span className="MuiTabs-indicatorSpan" /> }}
   />
-))(({theme}) => ({
-  '& .MuiTabs-indicator': {
-    display: 'flex',
-    justifyContent: 'center',
-    backgroundColor: 'transparent',
+))(({ theme }) => ({
+  "& .MuiTabs-indicator": {
+    display: "flex",
+    justifyContent: "center",
+    backgroundColor: "transparent",
   },
-  '& .MuiTabs-indicatorSpan': {
+  "& .MuiTabs-indicatorSpan": {
     maxWidth: 40,
-    width: '100%',
+    width: "100%",
     backgroundColor: theme.palette.text.primary,
   },
 }));
 
 const CustomTab = styled((props) => <Tab disableRipple {...props} />)(
-    ({theme}) => ({
-      'textTransform': 'none',
-      'fontWeight': theme.typography.fontWeightRegular,
-      'fontSize': theme.typography.pxToRem(15),
-      'marginRight': theme.spacing(1),
-      'opacity': 0.6,
-      '&.Mui-selected': {
-        opacity: 1,
-        color: theme.palette.text.primary,
-      },
-      '&.Mui-focusVisible': {
-        backgroundColor: 'rgba(100, 95, 228, 0.32)',
-      },
-    }),
+  ({ theme }) => ({
+    textTransform: "none",
+    fontWeight: theme.typography.fontWeightRegular,
+    fontSize: theme.typography.pxToRem(15),
+    marginRight: theme.spacing(1),
+    opacity: 0.6,
+    "&.Mui-selected": {
+      opacity: 1,
+      color: theme.palette.text.primary,
+    },
+    "&.Mui-focusVisible": {
+      backgroundColor: "rgba(100, 95, 228, 0.32)",
+    },
+  }),
 );
 
-const Header = ({scrollRefs}) => {
-  const {t} = useTranslation();
+const Header = ({ scrollRefs }) => {
+  const { t } = useTranslation();
   const theme = useTheme();
-  const isLg = useMediaQuery(theme.breakpoints.up('lg'));
+  const isLg = useMediaQuery(theme.breakpoints.up("lg"));
 
   const [value, setValue] = useState(0);
 
   const handleChange = (event, newValue) => {
     setValue(newValue);
     scrollRefs.current[newValue]?.scrollIntoView({
-      behavior: 'smooth',
-      block: 'end',
-      inline: 'nearest',
+      behavior: "smooth",
+      block: "end",
+      inline: "nearest",
     });
   };
   return (
@@ -88,7 +88,7 @@ const Header = ({scrollRefs}) => {
                 <Box
                   display="flex"
                   alignItems="center"
-                  flexDirection={isLg ? 'row' : 'row-reverse'}
+                  flexDirection={isLg ? "row" : "row-reverse"}
                   height="100%"
                 >
                   <Box>
@@ -114,12 +114,12 @@ const Header = ({scrollRefs}) => {
                       value={value}
                       onChange={handleChange}
                     >
-                      <CustomTab label={t('header.aboutMe')} />
-                      <CustomTab label={t('header.experience')} />
-                      <CustomTab label={t('header.projects')} />
-                      <CustomTab label={t('header.skills')} />
-                      <CustomTab label={t('header.blog')} />
-                      <CustomTab label={t('header.contact')} />
+                      <CustomTab label={t("header.aboutMe")} />
+                      <CustomTab label={t("header.experience")} />
+                      <CustomTab label={t("header.projects")} />
+                      <CustomTab label={t("header.skills")} />
+                      <CustomTab label={t("header.blog")} />
+                      <CustomTab label={t("header.contact")} />
                     </CustomTabs>
                   </Box>
                 </Grid>
@@ -129,12 +129,12 @@ const Header = ({scrollRefs}) => {
                   <Box
                     p={1}
                     sx={{
-                      display: 'flex',
-                      justifyContent: 'flex-end',
-                      alignItems: 'center',
-                      height: '100%',
-                      width: '100%',
-                      cursor: 'pointer',
+                      display: "flex",
+                      justifyContent: "flex-end",
+                      alignItems: "center",
+                      height: "100%",
+                      width: "100%",
+                      cursor: "pointer",
                     }}
                   >
                     <Logo />

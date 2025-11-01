@@ -1,8 +1,8 @@
-import Box from '@mui/material/Box';
-import {Container} from '@mui/material';
-import SectionTitle from 'components/SectionTitle';
-import {alpha, Grid} from '@mui/material';
-import ContactItem from 'components/ContactItem';
+import Box from "@mui/material/Box";
+import { Container } from "@mui/material";
+import SectionTitle from "components/SectionTitle";
+import { alpha, Grid } from "@mui/material";
+import ContactItem from "components/ContactItem";
 
 export default function StickyFooter() {
   return (
@@ -11,7 +11,7 @@ export default function StickyFooter() {
       sx={{
         py: 3,
         px: 2,
-        mt: 'auto',
+        mt: "auto",
       }}
     >
       <Container>
@@ -24,16 +24,16 @@ export default function StickyFooter() {
             mt: 3,
             borderRadius: 7,
             minHeight: 170,
-            display: 'flex',
-            justifyContent: 'center',
-            alignItems: 'center',
-            position: 'relative',
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            position: "relative",
           }}
         >
           <Container maxWidth="sm">
             <Grid container spacing={3}>
               <Grid item xl={12} lg={12} md={12} sm={12} xs={12}>
-                <Box sx={{display: 'flex', justifyContent: 'center'}}>
+                <Box sx={{ display: "flex", justifyContent: "center" }}>
                   <ContactItem />
                 </Box>
               </Grid>

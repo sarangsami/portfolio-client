@@ -1,12 +1,12 @@
-import PropTypes from 'prop-types';
-import {Box, Typography} from '@mui/material';
+import PropTypes from "prop-types";
+import { Box, Typography } from "@mui/material";
 
-const SectionTitle = ({name}) => {
+const SectionTitle = ({ name }) => {
   return (
     <Box>
       <Typography
         variant="h5"
-        sx={{fontWeight: 'bold', textTransform: 'uppercase'}}
+        sx={{ fontWeight: "bold", textTransform: "uppercase" }}
       >
         {name}
       </Typography>

@@ -1,10 +1,10 @@
 {
-  "header.aboutMe":"About Me",
-  "header.experience":"Experience",
-  "header.projects":"Projects",
-  "header.skills":"Skills",
-  "header.blog":"Blog",
-  "header.contact":"Contact",
-  "home.hireMe":"Hire Me",
-  "home.downloadCV":"Download CV"
+  "header.aboutMe": "About Me",
+  "header.experience": "Experience",
+  "header.projects": "Projects",
+  "header.skills": "Skills",
+  "header.blog": "Blog",
+  "header.contact": "Contact",
+  "home.hireMe": "Hire Me",
+  "home.downloadCV": "Download CV"
 }

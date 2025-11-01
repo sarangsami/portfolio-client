@@ -3,14 +3,14 @@ import {
   GitHub,
   Instagram,
   LinkedIn,
-} from '@mui/icons-material';
-import {Box, Grid, IconButton} from '@mui/material';
-import {styled} from '@mui/material/styles';
+} from "@mui/icons-material";
+import { Box, Grid, IconButton } from "@mui/material";
+import { styled } from "@mui/material/styles";
 
 const CustomIconButton = styled(IconButton)({
-  'opacity': 0.6,
-  'transition': 'opacity 0.5s',
-  '&:hover': {
+  opacity: 0.6,
+  transition: "opacity 0.5s",
+  "&:hover": {
     opacity: 1,
   },
 });

@@ -58,7 +58,7 @@ const AboutMe = () => {
                 textShadow: (globalTheme) =>
                   ` 0px 15px 15px ${alpha(
                     globalTheme.palette.primary.main,
-                    0.25
+                    0.25,
                   )}`,
               }}
             >

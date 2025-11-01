@@ -1,12 +1,12 @@
-import {Box, Container, useMediaQuery} from '@mui/material';
-import {useTheme, alpha} from '@mui/material/styles';
+import { Box, Container, useMediaQuery } from "@mui/material";
+import { useTheme, alpha } from "@mui/material/styles";
 
-import SectionTitle from 'components/SectionTitle';
-import HistoryItem from './HistoryItem';
+import SectionTitle from "components/SectionTitle";
+import HistoryItem from "./HistoryItem";
 
 const Experiences = () => {
   const theme = useTheme();
-  const isMd = useMediaQuery(theme.breakpoints.down('md'));
+  const isMd = useMediaQuery(theme.breakpoints.down("md"));
   return (
     <Box
       sx={{
@@ -18,7 +18,7 @@ const Experiences = () => {
       }}
     >
       <SectionTitle name="Experiences" />
-      <Container maxWidth={isMd ? 'lg' : 'md'}>
+      <Container maxWidth={isMd ? "lg" : "md"}>
         <Box mt={3}>
           <HistoryItem />
         </Box>

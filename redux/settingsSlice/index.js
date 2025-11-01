@@ -1,4 +1,4 @@
-import {createSlice} from '@reduxjs/toolkit';
+import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
   mode: 'light',
@@ -26,7 +26,7 @@ export const settingSlice = createSlice({
   },
 });
 
-export const {setMode, setDirection, setLanguage, setPrimaryColor} =
+export const { setMode, setDirection, setLanguage, setPrimaryColor } =
   settingSlice.actions;
 
 export default settingSlice.reducer;

@@ -1,7 +1,7 @@
-import PropTypes from 'prop-types';
-import {Paper, Box, Typography} from '@mui/material';
+import PropTypes from "prop-types";
+import { Paper, Box, Typography } from "@mui/material";
 
-const Item = ({borderPrimary, name}) => {
+const Item = ({ borderPrimary, name }) => {
   return (
     <Box display="flex">
       <Paper
@@ -10,12 +10,12 @@ const Item = ({borderPrimary, name}) => {
           borderRadius: 2,
           borderLeft: (globalTheme) =>
             `5px solid ${
-              borderPrimary ? globalTheme.palette.primary.main : ''
+              borderPrimary ? globalTheme.palette.primary.main : ""
             }`,
         }}
       >
         <Box p={2}>
-          <Typography variant="body2" sx={{fontWeight: 'bold'}}>
+          <Typography variant="body2" sx={{ fontWeight: "bold" }}>
             {name}
           </Typography>
         </Box>

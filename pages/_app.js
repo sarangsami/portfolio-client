@@ -1,10 +1,10 @@
 import PropTypes from 'prop-types';
 import Head from 'next/head';
-import {CacheProvider} from '@emotion/react';
-import {Provider} from 'react-redux';
+import { CacheProvider } from '@emotion/react';
+import { Provider } from 'react-redux';
 
 import createEmotionCache from 'utils/createEmotionCache';
-import {store} from 'redux/store';
+import { store } from 'redux/store';
 
 import Providers from 'Providers';
 
@@ -16,7 +16,7 @@ import 'swiper/css/pagination';
 const clientSideEmotionCache = createEmotionCache();
 
 export default function MyApp(props) {
-  const {Component, emotionCache = clientSideEmotionCache, pageProps} = props;
+  const { Component, emotionCache = clientSideEmotionCache, pageProps } = props;
 
   return (
     <CacheProvider value={emotionCache}>

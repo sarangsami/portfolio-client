@@ -1,13 +1,13 @@
 import Head from 'next/head';
 import PropTypes from 'prop-types';
-import {Box, Container} from '@mui/material';
+import { Box, Container } from '@mui/material';
 
 import AboutMe from 'components/Home/AboutMe';
 import Experiences from 'components/Home/Experiences';
 import MyProjects from 'components/Home/MyProjects';
 import MySkills from 'components/Home/MySkills';
 
-const Home = ({scrollRefs}) => {
+const Home = ({ scrollRefs }) => {
   return (
     <div>
       <Head>
@@ -32,7 +32,7 @@ const Home = ({scrollRefs}) => {
         </Container>
       </Box>
       <Box
-        sx={{minHeight: '80vh', my: 4}}
+        sx={{ minHeight: '80vh', my: 4 }}
         component="section"
         ref={(el) => (scrollRefs.current[1] = el)}
       >
@@ -41,7 +41,7 @@ const Home = ({scrollRefs}) => {
         </Container>
       </Box>
       <Box
-        sx={{minHeight: '80vh', my: 4}}
+        sx={{ minHeight: '80vh', my: 4 }}
         component="section"
         ref={(el) => (scrollRefs.current[2] = el)}
       >
@@ -50,7 +50,7 @@ const Home = ({scrollRefs}) => {
         </Container>
       </Box>
       <Box
-        sx={{minHeight: '80vh', my: 4}}
+        sx={{ minHeight: '80vh', my: 4 }}
         component="section"
         ref={(el) => (scrollRefs.current[3] = el)}
       >

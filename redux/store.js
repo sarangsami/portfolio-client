@@ -1,4 +1,4 @@
-import {configureStore} from '@reduxjs/toolkit';
+import { configureStore } from '@reduxjs/toolkit';
 import settingsSlice from './settingsSlice';
 
 export const store = configureStore({

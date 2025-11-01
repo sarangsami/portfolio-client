@@ -1,27 +1,27 @@
-import {Grid, Typography, Box, useMediaQuery} from '@mui/material';
-import {useTheme} from '@mui/material/styles';
+import { Grid, Typography, Box, useMediaQuery } from "@mui/material";
+import { useTheme } from "@mui/material/styles";
 
-import CustomPin from 'components/CustomPin';
+import CustomPin from "components/CustomPin";
 
 const HistoryItem = () => {
   const theme = useTheme();
-  const isMd = useMediaQuery(theme.breakpoints.down('md'));
+  const isMd = useMediaQuery(theme.breakpoints.down("md"));
   return (
     <Grid container>
       <Grid item xl={1} lg={1} md={1} sm={1} xs={2}>
-        <Box display="flex" justifyContent={isMd ? 'flex-start' : 'center'}>
+        <Box display="flex" justifyContent={isMd ? "flex-start" : "center"}>
           <CustomPin />
         </Box>
       </Grid>
       <Grid item xl lg md sm xs>
         <Box display="flex" flexDirection="column">
-          <Typography variant="h6" sx={{fontWeight: 'bold'}}>
+          <Typography variant="h6" sx={{ fontWeight: "bold" }}>
             Front - End Developer
           </Typography>
           <Box>
             <Typography
               color="primary"
-              sx={{textTransform: 'uppercase', fontWeight: 'bold'}}
+              sx={{ textTransform: "uppercase", fontWeight: "bold" }}
             >
               Novin.dev
             </Typography>

@@ -1,5 +1,5 @@
-"use client";
-import { KeyboardArrowDown, KeyboardArrowUp } from "@mui/icons-material";
+'use client';
+import { KeyboardArrowDown, KeyboardArrowUp } from '@mui/icons-material';
 import {
   Avatar,
   Button,
@@ -18,8 +18,8 @@ import {
   Switch,
   TextField,
   Typography,
-} from "@mui/material";
-import { useState } from "react";
+} from '@mui/material';
+import { useState } from 'react';
 
 const MemberItem = (props) => {
   const { member, members, setAddPaymentOpen, setSelectedMember } = props;
@@ -31,10 +31,10 @@ const MemberItem = (props) => {
       variant="outlined"
       sx={{
         p: 2,
-        display: "flex",
-        justifyContent: "space-between",
-        alignItems: "center",
-        flexDirection: "column",
+        display: 'flex',
+        justifyContent: 'space-between',
+        alignItems: 'center',
+        flexDirection: 'column',
       }}
     >
       <Stack
@@ -58,10 +58,10 @@ const MemberItem = (props) => {
                 ...member.payments,
                 {
                   id: member.payments.length + 1,
-                  description: "",
+                  description: '',
                   membersSharedPayment: members.map(({ id }) => ({
                     id,
-                    amount: "",
+                    amount: '',
                   })),
                 },
               ],
@@ -80,10 +80,10 @@ const MemberItem = (props) => {
         mt={2}
       >
         <Typography>
-          Total Paid:{" "}
+          Total Paid:{' '}
           {member.payments
             .flatMap((p) => p.membersSharedPayment)
-            .reduce((total, { amount }) => total + parseFloat(amount || "0"), 0)
+            .reduce((total, { amount }) => total + parseFloat(amount || '0'), 0)
             .toFixed(2)}
         </Typography>
         {member.payments.length ? (
@@ -95,7 +95,7 @@ const MemberItem = (props) => {
           </IconButton>
         ) : undefined}
       </Stack>
-      <Collapse in={isItemOpen} sx={{ width: "100%" }}>
+      <Collapse in={isItemOpen} sx={{ width: '100%' }}>
         <Divider sx={{ my: 2 }} />
         <Stack width="100%">
           <Typography fontWeight="bold" fontSize={20}>
@@ -121,7 +121,7 @@ const MemberItem = (props) => {
                     </Typography>
                   ))}
                 </Paper>
-              )
+              ),
             )}
           </Stack>
         </Stack>
@@ -131,12 +131,12 @@ const MemberItem = (props) => {
 };
 
 const ShareCalculator = () => {
-  const [memberName, setMemberName] = useState("");
+  const [memberName, setMemberName] = useState('');
   const [members, setMembers] = useState([]);
   const [addPaymentOpen, setAddPaymentOpen] = useState(false);
   const [selectedMember, setSelectedMember] = useState();
   const [splitEqually, setSplitEqually] = useState(true);
-  const [paymentAmount, setPaymentAmount] = useState("");
+  const [paymentAmount, setPaymentAmount] = useState('');
   const [isCalculateModalOpen, setIsCalculateModalOpen] = useState(false);
   const [results, setResults] = useState([]);
 
@@ -153,14 +153,14 @@ const ShareCalculator = () => {
       payments: [],
     }));
     setMembers(updatedMembers);
-    setMemberName("");
+    setMemberName('');
   };
 
   const handleAddPayment = () => {
     if (!selectedMember) return;
     const updatedMembers = [...members];
     const memberIndex = updatedMembers.findIndex(
-      (m) => m.id === selectedMember.id
+      (m) => m.id === selectedMember.id,
     );
     if (memberIndex === -1) return;
     const updatedMember = { ...selectedMember };
@@ -182,6 +182,7 @@ const ShareCalculator = () => {
         updatedMember.payments[
           selectedMember?.payments.length - 1
         ].membersSharedPayment = [
+          // eslint-disable-next-line no-unsafe-optional-chaining
           ...selectedMember.payments[selectedMember?.payments.length - 1]
             ?.membersSharedPayment,
         ];
@@ -195,7 +196,7 @@ const ShareCalculator = () => {
   const handleAddMemberClose = () => {
     setAddPaymentOpen(false);
     setSelectedMember(undefined);
-    setPaymentAmount("");
+    setPaymentAmount('');
     setSplitEqually(true);
   };
 
@@ -207,7 +208,7 @@ const ShareCalculator = () => {
           const debtorId = share.id;
           const creditorId = payer.id;
           if (debtorId === creditorId) continue;
-          const amount = Number.parseFloat(share.amount || "0");
+          const amount = Number.parseFloat(share.amount || '0');
           if (!Number.isFinite(amount) || amount === 0) continue;
 
           const key = `${debtorId}-${creditorId}`;
@@ -219,7 +220,7 @@ const ShareCalculator = () => {
     const netDebts = [];
     for (const key of Object.keys(raw)) {
       if (processed.has(key)) continue;
-      const [debtorStr, creditorStr] = key.split("-");
+      const [debtorStr, creditorStr] = key.split('-');
       const debtor = Number(debtorStr);
       const creditor = Number(creditorStr);
       const forward = raw[key] || 0;
@@ -249,7 +250,7 @@ const ShareCalculator = () => {
     netDebts.sort((a, b) =>
       a.debtorId === b.debtorId
         ? a.creditorId - b.creditorId
-        : a.debtorId - b.debtorId
+        : a.debtorId - b.debtorId,
     );
     return netDebts;
   }
@@ -348,7 +349,7 @@ const ShareCalculator = () => {
               }}
               fullWidth
               sx={{
-                maxWidth: "80%",
+                maxWidth: '80%',
               }}
               disabled={!splitEqually}
             />
@@ -367,7 +368,7 @@ const ShareCalculator = () => {
           <TextField
             value={
               selectedMember?.payments?.[selectedMember.payments.length - 1]
-                ?.description || ""
+                ?.description || ''
             }
             onChange={(e) => {
               if (!selectedMember) return;
@@ -375,7 +376,7 @@ const ShareCalculator = () => {
                 (payment, index) =>
                   index === selectedMember.payments.length - 1
                     ? { ...payment, description: e.target.value }
-                    : payment
+                    : payment,
               );
               setSelectedMember({
                 ...selectedMember,
@@ -401,7 +402,7 @@ const ShareCalculator = () => {
                         selectedMember?.payments[
                           selectedMember.payments.length - 1
                         ]?.membersSharedPayment?.find((p) => p.id === member.id)
-                          ?.amount || ""
+                          ?.amount || ''
                       }
                       onChange={(e) => {
                         const { value } = e.target;
@@ -413,7 +414,7 @@ const ShareCalculator = () => {
                           if (!lastPayment) return prev;
                           const updatedMembersSharedPayment =
                             lastPayment.membersSharedPayment.map((p) =>
-                              p.id === member.id ? { ...p, amount: value } : p
+                              p.id === member.id ? { ...p, amount: value } : p,
                             );
                           payments[lastPaymentIndex] = {
                             ...lastPayment,

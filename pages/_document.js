@@ -1,4 +1,4 @@
-import Document, {Html, Head, Main, NextScript} from 'next/document';
+import Document, { Html, Head, Main, NextScript } from 'next/document';
 import createEmotionServer from '@emotion/server/create-instance';
 import createEmotionCache from 'utils/createEmotionCache';
 export default class MyDocument extends Document {
@@ -26,7 +26,7 @@ MyDocument.getInitialProps = async (ctx) => {
   const originalRenderPage = ctx.renderPage;
 
   const cache = createEmotionCache();
-  const {extractCriticalToChunks} = createEmotionServer(cache);
+  const { extractCriticalToChunks } = createEmotionServer(cache);
 
   ctx.renderPage = () =>
     originalRenderPage({
@@ -43,7 +43,7 @@ MyDocument.getInitialProps = async (ctx) => {
       data-emotion={`${style.key} ${style.ids.join(' ')}`}
       key={style.key}
       // eslint-disable-next-line react/no-danger
-      dangerouslySetInnerHTML={{__html: style.css}}
+      dangerouslySetInnerHTML={{ __html: style.css }}
     />
   ));
 

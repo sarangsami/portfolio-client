@@ -1,8 +1,8 @@
 {
-  "header.aboutMe":"درباره من",
-  "header.experience":"سابقه کار",
-  "header.projects":"پروژه ها",
-  "header.skills":"توانایی ها",
-  "header.blog":"خبر نامه",
-  "header.contact":"تماس با من"
+  "header.aboutMe": "درباره من",
+  "header.experience": "سابقه کار",
+  "header.projects": "پروژه ها",
+  "header.skills": "توانایی ها",
+  "header.blog": "خبر نامه",
+  "header.contact": "تماس با من"
 }
