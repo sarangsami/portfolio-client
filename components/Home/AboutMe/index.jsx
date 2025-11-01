@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 import { useTranslation } from "react-i18next";
 import { useSelector } from "react-redux";
 import { Box, Grid, Typography, useMediaQuery } from "@mui/material";
@@ -7,7 +8,6 @@ import { useTheme, alpha } from "@mui/material/styles";
 import CustomButton from "components/CustomButton";
 import SocialMedia from "./SocialMedia";
 import { useRouter } from "next/router";
-import Image from "next/image";
 
 const iconRender = () => {
   const direction = useSelector((state) => state.settings.direction);
@@ -58,7 +58,7 @@ const AboutMe = () => {
                 textShadow: (globalTheme) =>
                   ` 0px 15px 15px ${alpha(
                     globalTheme.palette.primary.main,
-                    0.25,
+                    0.25
                   )}`,
               }}
             >
@@ -131,9 +131,10 @@ const AboutMe = () => {
                 justifyContent={isMd ? "center" : "flex-end"}
               >
                 <Box width="100%" maxWidth={350} maxHeight={450}>
-                  <Image
+                  <img
                     src="/images/profileBackground.png"
-                    fill
+                    width="100%"
+                    height="100%"
                     alt="profile"
                   />
                 </Box>
