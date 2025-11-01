@@ -7,6 +7,7 @@ import { useTheme, alpha } from "@mui/material/styles";
 import CustomButton from "components/CustomButton";
 import SocialMedia from "./SocialMedia";
 import { useRouter } from "next/router";
+import Image from "next/image";
 
 const iconRender = () => {
   const direction = useSelector((state) => state.settings.direction);
@@ -130,10 +131,9 @@ const AboutMe = () => {
                 justifyContent={isMd ? "center" : "flex-end"}
               >
                 <Box width="100%" maxWidth={350} maxHeight={450}>
-                  <img
+                  <Image
                     src="/images/profileBackground.png"
-                    width="100%"
-                    height="100%"
+                    fill
                     alt="profile"
                   />
                 </Box>
