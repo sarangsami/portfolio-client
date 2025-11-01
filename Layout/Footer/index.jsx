@@ -1,4 +1,3 @@
-import * as React from 'react';
 import Box from '@mui/material/Box';
 import {Container} from '@mui/material';
 import SectionTitle from 'components/SectionTitle';
@@ -31,44 +30,9 @@ export default function StickyFooter() {
             position: 'relative',
           }}
         >
-          <Box
-            sx={{
-              width: 30,
-              height: 30,
-              borderRadius: '50%',
-              backgroundColor: 'red',
-              position: 'absolute',
-              top: 0,
-            }}
-          />
-          <Box
-            sx={{
-              width: 30,
-              height: 30,
-              borderRadius: '50%',
-              backgroundColor: 'red',
-              position: 'absolute',
-              top: 0,
-            }}
-          />
-          <Box
-            sx={{
-              width: 30,
-              height: 30,
-              borderRadius: '50%',
-              backgroundColor: 'red',
-              position: 'absolute',
-              top: 0,
-            }}
-          />
           <Container maxWidth="sm">
             <Grid container spacing={3}>
-              <Grid item xl={6} lg={6} md={6} sm={12} xs={12}>
-                <Box sx={{display: 'flex', justifyContent: 'center'}}>
-                  <ContactItem />
-                </Box>
-              </Grid>
-              <Grid item xl={6} lg={6} md={6} sm={12} xs={12}>
+              <Grid item xl={12} lg={12} md={12} sm={12} xs={12}>
                 <Box sx={{display: 'flex', justifyContent: 'center'}}>
                   <ContactItem />
                 </Box>

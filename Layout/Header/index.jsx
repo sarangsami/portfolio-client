@@ -64,7 +64,7 @@ const Header = ({scrollRefs}) => {
 
   const handleChange = (event, newValue) => {
     setValue(newValue);
-    scrollRefs.current[newValue].scrollIntoView({
+    scrollRefs.current[newValue]?.scrollIntoView({
       behavior: 'smooth',
       block: 'end',
       inline: 'nearest',
